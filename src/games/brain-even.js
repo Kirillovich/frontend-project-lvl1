@@ -1,15 +1,19 @@
-import engine from '../index.js';
+import { engine, countRound } from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const brainEven = () => {
-  const question = (Math.random() * 100).toFixed();
-  let correctAnswer = '';
+  const question = [];
+  const correctAnswer = [];
 
-  if (question % 2 === 0) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
+  for (let i = 0; i < countRound; i += 1) {
+    question.push((Math.random() * 100).toFixed());
+
+    if (question[i] % 2 === 0) {
+      correctAnswer.push('yes');
+    } else {
+      correctAnswer.push('no');
+    }
   }
 
   return [question, correctAnswer];
